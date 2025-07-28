@@ -1,0 +1,50 @@
+#dev
+
+#docker-compose -f docker-compose.dev.yml -d
+
+services:
+  front:
+    build: ./front
+    ports:
+      - "3000:3000"
+    networks:
+      - porttrack-net
+
+  boat:
+    build: ./boat
+    ports:
+      - "8081:8081"
+    networks:
+      - porttrack-net
+
+  load:
+    build: ./load
+    ports:
+      - "8082:8082"
+    networks:
+      - porttrack-net
+
+  route:
+    build: ./route
+    ports:
+      - "8083:8083"
+    networks:
+      - porttrack-net
+  
+  staff:
+    build: ./staff
+    ports:
+      - "8084:8084"
+    networks:
+      - porttrack-net
+
+  tracking:
+    build: ./tracking
+    ports:
+      - "8085:8085"
+    networks:
+      - porttrack-net
+
+networks:
+  porttrack-net:
+    driver: bridge
