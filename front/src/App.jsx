@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
 const services = [
-  { name: 'Boat', url: 'http://localhost:8081' },
-  { name: 'Load', url: 'http://localhost:8082' },
-  { name: 'Route', url: 'http://localhost:8083' },
-  { name: 'Staff', url: 'http://localhost:8084' },
-  { name: 'Tracking', url: 'http://localhost:8085' },
+  { name: 'Boat', url: 'http://localhost:8081/boat' },
+  { name: 'Load', url: 'http://localhost:8082/load' },
+  { name: 'Route', url: 'http://localhost:8083/route' },
+  { name: 'Staff', url: 'http://localhost:8084/staff' },
+  { name: 'Tracking', url: 'http://localhost:8085/tracking' },
 ]
 
 function App() {
