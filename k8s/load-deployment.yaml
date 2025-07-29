@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.dev.yml
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: load
+  name: load
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: load
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.dev.yml
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/porttrack-porttrack-net: "true"
+        io.kompose.service: load
+    spec:
+      containers:
+        - image: eddindocker/load:latest
+          name: load
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+          resources: {}
+      restartPolicy: Always
+status: {}
