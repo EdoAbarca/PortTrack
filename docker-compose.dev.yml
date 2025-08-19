@@ -6,7 +6,7 @@ services:
   front:
     build: ./front
     ports:
-      - "3000:3000"
+      - "3000:80" # changed from "3000:3000"
     networks:
       - porttrack-net
 
@@ -44,7 +44,33 @@ services:
       - "8085:8085"
     networks:
       - porttrack-net
+  
+    prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - porttrack-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    ports:
+      - "3000:3000"
+    networks:
+      - porttrack-net
+    depends_on:
+      - prometheus
 
 networks:
   porttrack-net:
     driver: bridge
+
+volumes:
+  prometheus_data:

@@ -1,0 +1,27 @@
+global:
+  scrape_interval: 10s
+
+scrape_configs:
+  - job_name: 'boat'
+    static_configs:
+      - targets: ['boat:8001']
+
+  - job_name: 'load'
+    static_configs:
+      - targets: ['load:8002']
+    
+  - job_name: 'route'
+    static_configs:
+      - targets: ['route:8003']
+
+  - job_name: 'staff'
+    static_configs:
+      - targets: ['staff:8004'] 
+
+  - job_name: 'tracking'
+    static_configs:
+      - targets: ['tracking:8005']
+  
+  - job_name: 'front'
+    static_configs:
+      - targets: ['front:80']
