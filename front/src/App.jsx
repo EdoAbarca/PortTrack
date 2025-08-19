@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
 const services = [
-  { name: 'Boat', url: 'http://localhost:8081/boat' },
-  { name: 'Load', url: 'http://localhost:8082/load' },
-  { name: 'Route', url: 'http://localhost:8083/route' },
-  { name: 'Staff', url: 'http://localhost:8084/staff' },
-  { name: 'Tracking', url: 'http://localhost:8085/tracking' },
+  { name: 'Boat', url: import.meta.env.VITE_BOAT_URL },
+  { name: 'Load', url: import.meta.env.VITE_LOAD_URL },
+  { name: 'Route', url: import.meta.env.VITE_ROUTE_URL },
+  { name: 'Staff', url: import.meta.env.VITE_STAFF_URL },
+  { name: 'Tracking', url: import.meta.env.VITE_TRACKING_URL },
 ]
 
 function App() {
